@@ -8,3 +8,100 @@
 body {
   background: linear-gradient(260deg, #b75d62, #754d4f);
 }
+
+.showcase {
+  display: flex;
+  position: absolute;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90vh;
+  padding: 0 15%;
+  overflow: hidden;
+}
+
+nav {
+  min-height: 10vh;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 15%;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+nav img {
+  transform: scale(0.7);
+}
+
+.image-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 80vh;
+  z-index: 2;
+  flex: 1;
+}
+
+.image-container img {
+  width: 80%;
+  padding-bottom: 5rem;
+}
+
+.showcase-text {
+  color: white;
+  flex: 1;
+  padding-bottom: 5rem;
+}
+
+.showcase-title {
+  font-size: 1.5rem;
+}
+
+.showcase-subtitle {
+  font-size: 0.8rem;
+  padding: 3rem 0;
+  font-weight: 400;
+}
+
+.showcase-button {
+  padding: 0.5rem 2rem;
+  border: none;
+  color: black;
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.showcase-arrow {
+  position: absolute;
+  right: 15%;
+  bottom: 10%;
+  transform: scale(0.6);
+}
+
+
+/* Background Bubbles */
+.circle {
+  position: absolute;
+}
+
+.circle-1 {
+  left: -8%;
+  bottom: -8%;
+  transform: scale(1.5);
+}
+.circle-2 {
+  left: 25%;
+  bottom: -3%;
+  transform: scale(0.7);
+}
+.circle-3 {
+  left: 15%;
+  top: 5%;
+  transform: scale(1);
+}
