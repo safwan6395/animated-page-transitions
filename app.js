@@ -40,6 +40,7 @@ const enterAnimation = (current, done, gradient) => {
   const text = current.querySelector(".showcase-text");
   const circles = current.querySelectorAll(".circle");
   const arrow = current.querySelector(".showcase-arrow");
+
   return (
     tlEnter.from(current, { autoAlpha: 0 }),
     tlEnter.fromTo(arrow, { opacity: 0 }, { opacity: 1 }),
@@ -92,8 +93,38 @@ const init = () =>
           enterAnimation(next, done, gradient);
         },
       },
+      // product page
+      {
+        name: "product-transition",
+        sync: true,
+        from: { namespace: ["handbag", "boot", "hat"] },
+        to: { namespace: ["product"] },
+        leave(data) {
+          const done = this.async();
+          let current = data.current.container;
+          productLeaveAnimation(current, done);
+        },
+        enter(data) {
+          const done = this.async();
+          let next = data.next.container;
+          productEnterAnimation(next, done);
+        },
+      },
     ],
   });
+
+const productEnterAnimation = function (next, done) {
+  tlEnter.fromTo(next, { y: "100%" }, { y: "0%" });
+  tlEnter.fromTo(
+    ".card",
+    { opacity: 0, y: 50 },
+    { opacity: 1, y: 0, stagger: 0.1, onComplete: done }
+  );
+};
+
+const productLeaveAnimation = function (next, done) {
+  tlLeave.fromTo(next, { y: "0%" }, { y: "-120%", onComplete: done });
+};
 
 const getGradient = function (name) {
   switch (name) {
@@ -107,6 +138,5 @@ const getGradient = function (name) {
 };
 
 window.addEventListener("load", () => {
-  console.log("init run");
   init();
 });
